@@ -35,6 +35,7 @@ window.addEventListener("scroll", function () {
 
 const navToggleBtn = document.querySelector("[data-nav-toggle-btn]");
 const navbar = document.querySelector("[data-navbar]");
+const navLinks = document.querySelectorAll(".navbar-link");
 
 navToggleBtn.addEventListener("click", function () {
 
@@ -44,11 +45,23 @@ navToggleBtn.addEventListener("click", function () {
 
 });
 
+navLinks.forEach(link => {
+  link.addEventListener("click", function () {
+    // Close the menu
+    navbar.classList.remove("active");
+    navToggleBtn.classList.remove("active");
+    document.body.classList.remove("active");
 
+    //  Enable scrolling again
+    document.body.style.overflow = '';
+  });
+});
 
 /**
  * skills toggle
  */
+
+
 
 const toggleBtnBox = document.querySelector("[data-toggle-box]");
 const toggleBtns = document.querySelectorAll("[data-toggle-btn]");
